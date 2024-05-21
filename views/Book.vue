@@ -143,9 +143,7 @@ const editItem = (item) => {
   addAuthor.value = item.author;
   addName.value = item.name;
   addBorrow.value = item.borrow;
-  addReturn.value = item.return;
-  dialog.value = true;
-  isEditing.value = true;
+
 };
 // Method to save the edited item
 const saveItem = () => {
