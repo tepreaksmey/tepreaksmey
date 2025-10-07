@@ -5,7 +5,7 @@ const search = ref("");
 const header = ref([
   {
     key: "id",
-    title: "Book ID",
+    title: "Book ",
   },
   {
     key: "title",
@@ -76,15 +76,8 @@ const addDateError = ref("");
 const isEditing = ref(false);
 // btn addItem
 const addItem = () => {
-  if (
-    addId.value &&
-    addTitle.value &&
-    addAuthor.value &&
-    addDate.value 
-  ) {
-    const index = items.value.findIndex(
-      (item) => item.id === addId.value
-    );
+  if (addId.value && addTitle.value && addAuthor.value && addDate.value) {
+    const index = items.value.findIndex((item) => item.id === addId.value);
     if (index !== -1) {
       items.value[index] = {
         id: addId.value,
@@ -94,7 +87,7 @@ const addItem = () => {
       };
     } else {
       items.value.push({
-        id: addId.value, 
+        id: addId.value,
         title: addTitle.value,
         author: addAuthor.value,
         date: addDate.value,
@@ -119,12 +112,7 @@ const editItem = (item) => {
 };
 // Method to save the edited item
 const saveItem = () => {
-  if (
-    addId.value &&
-    addTitle.value &&
-    addAuthor.value &&
-    addDate.value 
-  ) {
+  if (addId.value && addTitle.value && addAuthor.value && addDate.value) {
     const index = items.value.findIndex((item) => item.id === addId.value);
     if (index !== -1) {
       items.value[index] = {
@@ -156,7 +144,7 @@ const Error = () => {
   addTitleError.value = "Please field a Title";
   addDateError.value = "Please field a Date";
 };
-const clearErrors = ()=> {
+const clearErrors = () => {
   addIdError.value = null;
   addTitleError.value = null;
   addAuthorError.value = null;
@@ -174,7 +162,7 @@ const deleteFunction = (id) => {
 };
 </script>
 <template>
-  <div class="px-10 py-4" style="background-color: whitesmoke;height: 87vh">
+  <div class="px-10 py-4" style="background-color: whitesmoke; height: 87vh">
     <v-row>
       <v-col cols="12" md="12">
         <v-dialog v-model="dialog" width="600">
@@ -235,13 +223,19 @@ const deleteFunction = (id) => {
                     </v-text-field>
                   </v-col>
                 </v-row>
-                <v-row>
-                  
-                </v-row>
-                <v-btn class="bg-green" @click="addItem" v-if="!isEditing">Add</v-btn>
-                <v-btn class="bg-red ml-2" @click="reset" v-if="!isEditing">Clear</v-btn>
-                <v-btn class="bg-green ml-2" @click="saveItem" v-if="isEditing">Edit</v-btn>
-                <v-btn class="bg-red ml-2" @click="cancelEdit" v-if="isEditing">Cancle</v-btn>
+                <v-row> </v-row>
+                <v-btn class="bg-green" @click="addItem" v-if="!isEditing"
+                  >Add</v-btn
+                >
+                <v-btn class="bg-red ml-2" @click="reset" v-if="!isEditing"
+                  >Clear</v-btn
+                >
+                <v-btn class="bg-green ml-2" @click="saveItem" v-if="isEditing"
+                  >Edit</v-btn
+                >
+                <v-btn class="bg-red ml-2" @click="cancelEdit" v-if="isEditing"
+                  >Cancle</v-btn
+                >
               </v-form>
             </v-card-text>
           </v-card>
@@ -255,7 +249,7 @@ const deleteFunction = (id) => {
             <v-row>
               <v-col cols="6" md="6" class="mt-5 mb-3">
                 <div class="w-100">
-                  <v-text-field 
+                  <v-text-field
                     :loading="loading"
                     append-inner-icon="mdi-magnify"
                     density="compact"
@@ -269,8 +263,14 @@ const deleteFunction = (id) => {
                 </div>
               </v-col>
               <v-col cols="6" md="6" class="mt-5">
-                <v-btn @click="clearErrors(),reset(),isEditing=false,dialog = true"  class="bg-green">
-                  <v-icon class="mr-2">mdi-book-plus-multiple</v-icon>Add Book</v-btn
+                <v-btn
+                  @click="
+                    clearErrors(), reset(), (isEditing = false), (dialog = true)
+                  "
+                  class="bg-green"
+                >
+                  <v-icon class="mr-2">mdi-book-plus-multiple</v-icon>Add
+                  Book</v-btn
                 >
               </v-col>
             </v-row>
@@ -279,7 +279,14 @@ const deleteFunction = (id) => {
 
         <v-data-table :headers="header" :items="items" :search="search">
           <template v-slot:item.action="row">
-            <v-icon class="text-green mr-2" @click="editItem(row.item); clearErrors();">mdi-pencil</v-icon>
+            <v-icon
+              class="text-green mr-2"
+              @click="
+                editItem(row.item);
+                clearErrors();
+              "
+              >mdi-pencil</v-icon
+            >
             <v-icon @click="deleteFunction(row.item.id)" class="text-red"
               >mdi-delete</v-icon
             >
