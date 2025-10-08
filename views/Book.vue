@@ -61,7 +61,7 @@ const items = ref([
     id: "#19401",
     name: "David",
     title: "PHP",
-    author: "Bey Suchea",
+    author: "Sorl Vichika",
     borrow: "18/3/2024",
     return: "07/4/2024",
   },
