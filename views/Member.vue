@@ -72,6 +72,13 @@ const items = ref([
     email: "chhikmengtoch@gamil.com",
     phone: "0881255185",
   },
+  {
+    id: "007",
+    name: "LY Sumeng",
+    gender: "F",
+    email: "sumengly956@gamil.com",
+    phone: "0881255185",
+  },
 ]);
 const deleteItem = ref({});
 const addId = ref("");
