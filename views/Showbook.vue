@@ -18,7 +18,7 @@ const books = ref([
     image: "https://m.media-amazon.com/images/I/511ULzvQN3L.jpg",
     text: "English is a West Germanic language in the Indo-European , whose speakers, called Anglophones, originated in early medieval England.",
     rating: 4.5,
-    author: "Kouch David",
+    author: "Chin Nat",
     PublisherDate: "2016",
     publisher: "NUBB",
     langauge: "English",
